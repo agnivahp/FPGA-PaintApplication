@@ -1,0 +1,75 @@
+14:35:53 **** Incremental Build of configuration Nios II for project final ****
+make all 
+Info: Building ../final_bsp/
+C:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../final_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../final_bsp//HAL/inc -I../final_bsp/ -I../final_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'initialScreen':
+main.c:84:26: warning: unused variable 'c' [-Wunused-variable]
+     unsigned int x,y,i,b,c,j;
+                          ^
+main.c: In function 'linehelper':
+main.c:129:5: warning: implicit declaration of function 'Bresenham' [-Wimplicit-function-declaration]
+     Bresenham(x,y,end_x,end_y,color);
+     ^
+main.c: At top level:
+main.c:136:6: warning: conflicting types for 'Bresenham'
+ void Bresenham(int x1, int y1, int x2, int y2,int color)
+      ^
+main.c:129:5: note: previous implicit declaration of 'Bresenham' was here
+     Bresenham(x,y,end_x,end_y,color);
+     ^
+main.c: In function 'Bresenham':
+main.c:140:17: warning: unused variable 'flag_dydx' [-Wunused-variable]
+             int flag_dydx = 0, temp1,steep;
+                 ^
+main.c: In function 'circlehelper':
+main.c:240:9: warning: implicit declaration of function 'sqrt' [-Wimplicit-function-declaration]
+         rad = sqrt(pow((x-end_x),2)+pow((y-end_y),2))/2;
+         ^
+main.c:240:15: warning: incompatible implicit declaration of built-in function 'sqrt'
+         rad = sqrt(pow((x-end_x),2)+pow((y-end_y),2))/2;
+               ^
+main.c:240:9: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+         rad = sqrt(pow((x-end_x),2)+pow((y-end_y),2))/2;
+         ^
+main.c:240:20: warning: incompatible implicit declaration of built-in function 'pow'
+         rad = sqrt(pow((x-end_x),2)+pow((y-end_y),2))/2;
+                    ^
+main.c:252:5: warning: implicit declaration of function 'DrawCircle' [-Wimplicit-function-declaration]
+     DrawCircle(center_x,center_y,rad,color);
+     ^
+main.c: At top level:
+main.c:259:6: warning: conflicting types for 'DrawCircle'
+ void DrawCircle( int x0, int y0, int radius, int color)
+      ^
+main.c:252:5: note: previous implicit declaration of 'DrawCircle' was here
+     DrawCircle(center_x,center_y,rad,color);
+     ^
+main.c: In function 'squarehelper':
+main.c:374:4: warning: implicit declaration of function 'DrawSquare' [-Wimplicit-function-declaration]
+    DrawSquare(x1,x2,end_x,end_y,color);
+    ^
+main.c: At top level:
+main.c:383:6: warning: conflicting types for 'DrawSquare'
+ void DrawSquare(int x1, int y1, int x2, int y2,int color)
+      ^
+main.c:374:4: note: previous implicit declaration of 'DrawSquare' was here
+    DrawSquare(x1,x2,end_x,end_y,color);
+    ^
+main.c: In function 'main':
+main.c:447:21: warning: variable 'flag_square' set but not used [-Wunused-but-set-variable]
+  int flag_line = 0, flag_square = 0;
+                     ^
+Info: Linking final.elf
+nios2-elf-g++  -T'../final_bsp//linker.x' -msys-crt0='../final_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../final_bsp/   -Wl,-Map=final.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o final.elf obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert final.elf --thread_model hal --cpu_name nios2_qsys_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1493913510 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/altera/FinalProject-CURR" --jdi ../..//output_files/FinalProject.jdi --sopcinfo C:/altera/FinalProject-CURR/software/final_bsp/../../nios_system.sopcinfo
+Info: (final.elf) 130 KBytes program size (code + initialized data).
+Info:             130892 KBytes free for stack + heap.
+Info: Creating final.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source final.elf >final.objdump
+[final build complete]
+
+14:35:54 Build Finished (took 1s.404ms)
+
